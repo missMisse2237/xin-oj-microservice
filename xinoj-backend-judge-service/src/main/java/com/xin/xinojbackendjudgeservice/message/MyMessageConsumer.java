@@ -30,7 +30,5 @@ public class MyMessageConsumer {
         } catch (Exception e) {
             channel.basicNack(deliveryTag, false, false);
         }
-
-
     }
 }
