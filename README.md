@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # xin-oj-backend-microservice
 
 ## 整体划分
@@ -88,3 +89,6 @@ startup.cmd -m standalone
 | xinoj-backend-judge-service    | 8104       | jdk17   |
 
   
+=======
+这是我的Readme！
+>>>>>>> 14f7bd3fbd1acb9cafa86027cf22aa0e46cb18dd
