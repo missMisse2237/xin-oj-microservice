@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # xin-oj-backend-microservice
 
 ## 整体划分
@@ -27,9 +26,12 @@
 
 - 在做题页面，基于Webpack整合了Monaco Editor 代码编辑器组件，可以根据不同的语言实现不同的高亮显示。
 
-- 在提交列表页面，通过自定义插槽解析数据。
-
-- 全局权限通过Vue Router路由中的meta属性，增加一个access字段来定义页面权限，对于非管理员权限通过hidden字段实现页面的显隐。
+- 在调用代码沙箱时，使用了策略模式、代理模式、工厂模式：
+  - 工厂模式：通过传入的CodeSandboxEnum（枚举类）返回对象，借鉴了双检锁模式，不过因为是多个对象，通过Map缓存。
+  - 代理模式：采用了静态代理，代理的目的是输出一下日志。
+  - 策略模式：
+    - 我们可以采用策略模式，针对不同的情况，定义独立的策略，便于分别修改策略和维护。而不是把所有的判题逻辑、if ... else ... 代码全部混在一起写。
+    - 例如定义题目信息的时候限制了做题时间信息，而cpp天然的速度就会比java快一些，所以可以通过策略模式判断如果是java 就时间上宽松百分之20；等等
 
 
 
@@ -88,7 +90,4 @@ startup.cmd -m standalone
 | xinoj-backend-question-service | 8103       | jdk17   |
 | xinoj-backend-judge-service    | 8104       | jdk17   |
 
-  
-=======
-这是我的Readme！
->>>>>>> 14f7bd3fbd1acb9cafa86027cf22aa0e46cb18dd
+
